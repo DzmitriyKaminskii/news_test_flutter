@@ -1,2 +1,2 @@
 # news_test_flutter
-Testing projec
+Testing project
