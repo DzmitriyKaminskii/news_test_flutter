@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
-import 'package:news_test_flutter/features/list_news/presentation/widgets/TabsView.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/search.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_bar.dart';
+import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_view.dart';
 import 'package:news_test_flutter/injection.dart';
 
 class NewsListPage extends StatelessWidget {

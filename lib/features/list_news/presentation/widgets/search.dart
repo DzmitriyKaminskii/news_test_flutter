@@ -45,6 +45,7 @@ class Search extends StatelessWidget {
           TextButton(
             onPressed: () {
               _searchController.clear();
+              BlocProvider.of<ListNewsBloc>(context).add(ClearSearchEvent());
             },
             child: const Text(
               'Clear',

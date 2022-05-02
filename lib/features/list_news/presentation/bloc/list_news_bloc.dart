@@ -14,5 +14,8 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
     on<SearchEvent>((event, emit) {
       emit(state.copyWith(searchValue: 'TESTING: ${event.searchString}'));
     });
+    on<ClearSearchEvent>((event, emit) {
+      emit(state.copyWith(searchValue: ''));
+    });
   }
 }

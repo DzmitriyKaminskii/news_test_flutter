@@ -12,3 +12,8 @@ class SearchEvent extends ListNewsEvent {
   @override
   List<Object?> get props => [searchString];
 }
+
+class ClearSearchEvent extends ListNewsEvent {
+  @override
+  List<Object?> get props => [];
+}
