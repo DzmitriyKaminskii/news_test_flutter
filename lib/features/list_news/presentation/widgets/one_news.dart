@@ -31,47 +31,53 @@ class OneNews extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w600,
+              child: SizedBox(
+                width: 250,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title,
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        overflow: TextOverflow.ellipsis),
+                    const SizedBox(
+                      height: 10.0,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                    subTitle,
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w400,
+                    Text(subTitle,
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        overflow: TextOverflow.ellipsis),
+                    const SizedBox(
+                      height: 10.0,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                    'By: $sources',
-                    style: TextStyle(
-                      color: Colors.purple[400],
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+                    Text('By: $sources',
+                        style: TextStyle(
+                          color: Colors.purple[400],
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        overflow: TextOverflow.ellipsis),
+                  ],
+                ),
               ),
             ),
-            Image.asset(
-              imageSrc,
-              height: 100,
-              width: 100,
-            ),
+            imageSrc.isNotEmpty
+                ? Image.network(
+                    imageSrc,
+                    height: 100,
+                    width: 100,
+                  )
+                : Image.asset(
+                    'assets/noimage.png',
+                    height: 100,
+                    width: 100,
+                  ),
           ],
         ),
       ),

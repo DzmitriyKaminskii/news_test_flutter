@@ -8,7 +8,7 @@ import 'package:news_test_flutter/features/list_news/domain/entities/news.dart';
 import 'package:news_test_flutter/features/list_news/domain/repositories/news_repository.dart';
 import 'package:news_test_flutter/features/list_news/domain/usercases/get_news.dart';
 
-typedef _GetModelNews = Future<Iterable<NewsModel>?> Function();
+typedef _GetModelNews = Future<List<NewsModel>> Function();
 
 @Injectable(as: NewsRepository)
 class NewsRepositoryImpl implements NewsRepository {
@@ -17,19 +17,16 @@ class NewsRepositoryImpl implements NewsRepository {
   NewsRepositoryImpl({required this.newsDataSources});
 
   @override
-  Future<Either<Failure, List<News>?>> getNews(QueryParams params) async {
+  Future<Either<Failure, List<News>>> getNews(QueryParams params) async {
     return await _getNews(() => newsDataSources.getNews(params));
   }
 
-  Future<Either<Failure, List<News>?>> _getNews(
+  Future<Either<Failure, List<News>>> _getNews(
     _GetModelNews getModelNews,
   ) async {
     try {
       final remoteNews = await getModelNews();
-      if (remoteNews != null) {
-        return Right(remoteNews as List<News>);
-      }
-      return const Right(null);
+      return Right(remoteNews);
     } on ServerException {
       return Left(ServerFailure());
     }

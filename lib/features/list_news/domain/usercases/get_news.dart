@@ -7,13 +7,13 @@ import 'package:news_test_flutter/features/list_news/domain/entities/news.dart';
 import 'package:news_test_flutter/features/list_news/domain/repositories/news_repository.dart';
 
 @injectable
-class GetNews implements UseCase<List<News>?, QueryParams> {
+class GetNews implements UseCase<List<News>, QueryParams> {
   final NewsRepository repository;
 
   GetNews(this.repository);
 
   @override
-  Future<Either<Failure, List<News>?>> call(QueryParams params) async {
+  Future<Either<Failure, List<News>>> call(QueryParams params) async {
     return await repository.getNews(params);
   }
 }

@@ -20,7 +20,12 @@ class NewsListPage extends StatelessWidget {
       body: DefaultTabController(
         length: 2,
         child: BlocProvider<ListNewsBloc>(
-          create: (context) => locator<ListNewsBloc>(),
+          create: (context) {
+            var bloc = locator<ListNewsBloc>();
+            bloc.add(InitialEvent());
+            return bloc;
+          },
+          //create: (context) => locator<ListNewsBloc>(),
           child: BlocBuilder<ListNewsBloc, ListNewsState>(
               builder: (context, state) {
             return Column(
@@ -34,7 +39,9 @@ class NewsListPage extends StatelessWidget {
                 ),
                 FilterChipBlock(),
                 const FilterSortBlock(),
-                TabsView(),
+                TabsView(
+                  newsList: state.news,
+                ),
               ],
             );
           }),

@@ -4,6 +4,11 @@ abstract class ListNewsEvent extends Equatable {
   const ListNewsEvent();
 }
 
+class ClearSearchEvent extends ListNewsEvent {
+  @override
+  List<Object?> get props => [];
+}
+
 class SearchEvent extends ListNewsEvent {
   final String searchString;
 
@@ -13,7 +18,7 @@ class SearchEvent extends ListNewsEvent {
   List<Object?> get props => [searchString];
 }
 
-class ClearSearchEvent extends ListNewsEvent {
+class InitialEvent extends ListNewsEvent {
   @override
   List<Object?> get props => [];
 }

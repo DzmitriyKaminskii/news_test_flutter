@@ -14,11 +14,19 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
   final GetNews getNews;
 
   ListNewsBloc({required this.getNews}) : super(ListNewsState.initial()) {
+    on<InitialEvent>(_initialEvent);
     on<SearchEvent>((event, emit) {
       emit(state.copyWith(searchValue: 'TESTING: ${event.searchString}'));
     });
     on<ClearSearchEvent>((event, emit) {
       emit(state.copyWith(searchValue: ''));
     });
+  }
+
+  Future<void> _initialEvent(
+      ListNewsEvent event, Emitter<ListNewsState> emit) async {
+    final response = await getNews.call(const QueryParams(''));
+    response.fold(
+        (failure) => null, (news) => emit(state.copyWith(news: news)));
   }
 }
