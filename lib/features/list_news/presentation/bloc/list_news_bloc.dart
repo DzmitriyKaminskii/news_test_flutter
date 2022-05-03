@@ -25,16 +25,22 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
     emit(state.copyWith(isLoading: true));
 
     final response = await getNews.call(const QueryParams());
-    response.fold((failure) => null,
+    response.fold((failure) => emit(state.copyWith(isLoading: false)),
         (news) => emit(state.copyWith(news: news, isLoading: false)));
   }
 
   Future<void> _changeTabEvent(
       ChangeTab event, Emitter<ListNewsState> emit) async {
+    if (state.isHeadLines == (event.tab == 0)) return;
+
     emit(state.copyWith(isLoading: true));
     final response = await getNews.call(QueryParams(
         isHeadLines: event.tab == 0, searchValue: state.searchValue));
-    response.fold((failure) => null, (news) {
+    response.fold(
+        (failure) => {
+              emit(
+                  state.copyWith(isLoading: false, isHeadLines: event.tab == 0))
+            }, (news) {
       emit(state.copyWith(
           news: news, isLoading: false, isHeadLines: event.tab == 0));
     });
@@ -47,7 +53,7 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
     emit(state.copyWith(isLoading: true, searchValue: event.searchString));
     final response = await getNews.call(QueryParams(
         searchValue: event.searchString, isHeadLines: state.isHeadLines));
-    response.fold((failure) => null, (news) {
+    response.fold((failure) => emit(state.copyWith(isLoading: false)), (news) {
       emit(state.copyWith(news: news, isLoading: false));
     });
   }
@@ -57,7 +63,7 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
     emit(state.copyWith(isLoading: true, searchValue: ''));
     final response =
         await getNews.call(QueryParams(isHeadLines: state.isHeadLines));
-    response.fold((failure) => null, (news) {
+    response.fold((failure) => emit(state.copyWith(isLoading: false)), (news) {
       emit(state.copyWith(news: news, isLoading: false));
     });
   }

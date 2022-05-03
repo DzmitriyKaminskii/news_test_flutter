@@ -17,9 +17,9 @@ class TabsView extends StatelessWidget {
         children: [
           if (isHeadLines) ...[
             _ListNews(newsList: newsList),
-            const Text('Empty list'),
+            const Text('Second'),
           ] else ...[
-            const Text('Empty list'),
+            const Text('First'),
             _ListNews(newsList: newsList),
           ]
         ],
