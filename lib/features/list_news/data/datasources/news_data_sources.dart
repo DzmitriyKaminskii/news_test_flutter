@@ -28,18 +28,7 @@ class NewsDataSourcesImpl implements NewsDataSources {
 
   @override
   Future<List<NewsModel>> getNews(QueryParams params) {
-    Map<String, String> qParams = {
-      _countryParamKey: _countryParamValue,
-      _apiNameParam: _apiKeyParam,
-    };
-
-    final query = Uri(
-        scheme: _scheme,
-        host: _host,
-        path: _headlinePath,
-        queryParameters: qParams);
-
-    return _getNewsFromUrl(query);
+    return _getNewsFromUrl(_getQueryPath(params));
   }
 
   Future<List<NewsModel>> _getNewsFromUrl(Uri url) async {
@@ -60,5 +49,18 @@ class NewsDataSourcesImpl implements NewsDataSources {
     } else {
       throw ServerException();
     }
+  }
+
+  Uri _getQueryPath(QueryParams params) {
+    Map<String, String> qParams = {};
+    qParams[_searchParamName] = params.searchValue;
+    qParams[_countryParamKey] = _countryParamValue;
+    qParams[_apiNameParam] = _apiKeyParam;
+
+    return Uri(
+        scheme: _scheme,
+        host: _host,
+        path: params.isHeadLines ? _headlinePath : _everythingPath,
+        queryParameters: qParams);
   }
 }

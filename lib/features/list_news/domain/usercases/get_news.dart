@@ -20,8 +20,9 @@ class GetNews implements UseCase<List<News>, QueryParams> {
 
 class QueryParams extends Equatable {
   final String searchValue;
+  final bool isHeadLines;
 
-  const QueryParams(this.searchValue);
+  const QueryParams({this.searchValue = '', this.isHeadLines = true});
 
   @override
   List<Object?> get props => [searchValue];

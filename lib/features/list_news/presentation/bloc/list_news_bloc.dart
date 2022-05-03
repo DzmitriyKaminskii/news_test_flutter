@@ -25,7 +25,7 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
 
   Future<void> _initialEvent(
       ListNewsEvent event, Emitter<ListNewsState> emit) async {
-    final response = await getNews.call(const QueryParams(''));
+    final response = await getNews.call(const QueryParams());
     response.fold(
         (failure) => null, (news) => emit(state.copyWith(news: news)));
   }
