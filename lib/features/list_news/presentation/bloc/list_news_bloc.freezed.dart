@@ -23,6 +23,7 @@ mixin _$ListNewsState {
   String get dateTo => throw _privateConstructorUsedError;
   String get sortValue => throw _privateConstructorUsedError;
   String get sortType => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   List<News> get news => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,6 +44,7 @@ abstract class $ListNewsStateCopyWith<$Res> {
       String dateTo,
       String sortValue,
       String sortType,
+      bool isLoading,
       List<News> news});
 }
 
@@ -64,6 +66,7 @@ class _$ListNewsStateCopyWithImpl<$Res>
     Object? dateTo = freezed,
     Object? sortValue = freezed,
     Object? sortType = freezed,
+    Object? isLoading = freezed,
     Object? news = freezed,
   }) {
     return _then(_value.copyWith(
@@ -95,6 +98,10 @@ class _$ListNewsStateCopyWithImpl<$Res>
           ? _value.sortType
           : sortType // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       news: news == freezed
           ? _value.news
           : news // ignore: cast_nullable_to_non_nullable
@@ -118,6 +125,7 @@ abstract class _$ListNewsStateCopyWith<$Res>
       String dateTo,
       String sortValue,
       String sortType,
+      bool isLoading,
       List<News> news});
 }
 
@@ -141,6 +149,7 @@ class __$ListNewsStateCopyWithImpl<$Res>
     Object? dateTo = freezed,
     Object? sortValue = freezed,
     Object? sortType = freezed,
+    Object? isLoading = freezed,
     Object? news = freezed,
   }) {
     return _then(_ListNewsState(
@@ -172,6 +181,10 @@ class __$ListNewsStateCopyWithImpl<$Res>
           ? _value.sortType
           : sortType // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       news: news == freezed
           ? _value.news
           : news // ignore: cast_nullable_to_non_nullable
@@ -191,6 +204,7 @@ class _$_ListNewsState implements _ListNewsState {
       required this.dateTo,
       required this.sortValue,
       required this.sortType,
+      required this.isLoading,
       required final List<News> news})
       : _sources = sources,
         _news = news;
@@ -214,6 +228,8 @@ class _$_ListNewsState implements _ListNewsState {
   final String sortValue;
   @override
   final String sortType;
+  @override
+  final bool isLoading;
   final List<News> _news;
   @override
   List<News> get news {
@@ -223,7 +239,7 @@ class _$_ListNewsState implements _ListNewsState {
 
   @override
   String toString() {
-    return 'ListNewsState(searchValue: $searchValue, isHeadLines: $isHeadLines, sources: $sources, dateFrom: $dateFrom, dateTo: $dateTo, sortValue: $sortValue, sortType: $sortType, news: $news)';
+    return 'ListNewsState(searchValue: $searchValue, isHeadLines: $isHeadLines, sources: $sources, dateFrom: $dateFrom, dateTo: $dateTo, sortValue: $sortValue, sortType: $sortType, isLoading: $isLoading, news: $news)';
   }
 
   @override
@@ -240,6 +256,7 @@ class _$_ListNewsState implements _ListNewsState {
             const DeepCollectionEquality().equals(other.dateTo, dateTo) &&
             const DeepCollectionEquality().equals(other.sortValue, sortValue) &&
             const DeepCollectionEquality().equals(other.sortType, sortType) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.news, news));
   }
 
@@ -253,6 +270,7 @@ class _$_ListNewsState implements _ListNewsState {
       const DeepCollectionEquality().hash(dateTo),
       const DeepCollectionEquality().hash(sortValue),
       const DeepCollectionEquality().hash(sortType),
+      const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(news));
 
   @JsonKey(ignore: true)
@@ -270,6 +288,7 @@ abstract class _ListNewsState implements ListNewsState {
       required final String dateTo,
       required final String sortValue,
       required final String sortType,
+      required final bool isLoading,
       required final List<News> news}) = _$_ListNewsState;
 
   @override
@@ -286,6 +305,8 @@ abstract class _ListNewsState implements ListNewsState {
   String get sortValue => throw _privateConstructorUsedError;
   @override
   String get sortType => throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   List<News> get news => throw _privateConstructorUsedError;
   @override

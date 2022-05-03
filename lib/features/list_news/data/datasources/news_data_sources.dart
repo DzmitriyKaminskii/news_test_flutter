@@ -21,8 +21,10 @@ class NewsDataSourcesImpl implements NewsDataSources {
   final String _headlinePath = 'v2/top-headlines';
   final String _everythingPath = 'v2/everything';
   final String _searchParamName = 'q=';
-  final String _countryParamKey = 'country';
-  final String _countryParamValue = 'us';
+  final String _languageParamKey = 'language';
+  final String _languageParamValue = 'en';
+  final String _domainsParamsKey = 'domains';
+  final String _domainsParamsValue = 'techcrunch.com,thenextweb.com';
 
   NewsDataSourcesImpl({required this.client});
 
@@ -54,7 +56,13 @@ class NewsDataSourcesImpl implements NewsDataSources {
   Uri _getQueryPath(QueryParams params) {
     Map<String, String> qParams = {};
     qParams[_searchParamName] = params.searchValue;
-    qParams[_countryParamKey] = _countryParamValue;
+    if (!params.isHeadLines) {
+      qParams[_domainsParamsKey] = _domainsParamsValue;
+    }
+    if (params.isHeadLines) {
+      qParams[_languageParamKey] = _languageParamValue;
+    }
+
     qParams[_apiNameParam] = _apiKeyParam;
 
     return Uri(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
@@ -28,25 +29,41 @@ class NewsListPage extends StatelessWidget {
           //create: (context) => locator<ListNewsBloc>(),
           child: BlocBuilder<ListNewsBloc, ListNewsState>(
               builder: (context, state) {
-            return Column(
-              children: [
-                Search(
-                  searchString: state.searchValue,
-                ),
-                const TabsBar(),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                FilterChipBlock(),
-                const FilterSortBlock(),
-                TabsView(
-                  newsList: state.news,
-                ),
-              ],
+            return LoaderOverlay(
+              child: Column(
+                children: [
+                  _Loader(isLoading: state.isLoading),
+                  Search(
+                    searchString: state.searchValue,
+                  ),
+                  const TabsBar(),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  FilterChipBlock(),
+                  const FilterSortBlock(),
+                  TabsView(
+                    newsList: state.news,
+                    isHeadLines: state.isHeadLines,
+                  ),
+                ],
+              ),
             );
           }),
         ),
       ),
     );
+  }
+}
+
+class _Loader extends StatelessWidget {
+  const _Loader({Key? key, required this.isLoading}) : super(key: key);
+
+  final bool isLoading;
+
+  @override
+  Widget build(BuildContext context) {
+    isLoading ? context.loaderOverlay.show() : context.loaderOverlay.hide();
+    return const SizedBox();
   }
 }

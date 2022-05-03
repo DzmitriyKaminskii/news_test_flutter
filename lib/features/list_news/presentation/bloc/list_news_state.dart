@@ -10,6 +10,7 @@ class ListNewsState with _$ListNewsState {
     required String dateTo,
     required String sortValue,
     required String sortType,
+    required bool isLoading,
     required List<News> news,
   }) = _ListNewsState;
 
@@ -21,5 +22,6 @@ class ListNewsState with _$ListNewsState {
       dateTo: '',
       sortValue: '',
       sortType: '',
+      isLoading: false,
       news: []);
 }

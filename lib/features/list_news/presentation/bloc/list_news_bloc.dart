@@ -15,18 +15,50 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
 
   ListNewsBloc({required this.getNews}) : super(ListNewsState.initial()) {
     on<InitialEvent>(_initialEvent);
-    on<SearchEvent>((event, emit) {
-      emit(state.copyWith(searchValue: 'TESTING: ${event.searchString}'));
-    });
-    on<ClearSearchEvent>((event, emit) {
-      emit(state.copyWith(searchValue: ''));
-    });
+    on<ChangeTab>(_changeTabEvent);
+    on<SearchEvent>(_searchEvent);
+    on<ClearSearchEvent>(_clearSearchEvent);
   }
 
   Future<void> _initialEvent(
       ListNewsEvent event, Emitter<ListNewsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     final response = await getNews.call(const QueryParams());
-    response.fold(
-        (failure) => null, (news) => emit(state.copyWith(news: news)));
+    response.fold((failure) => null,
+        (news) => emit(state.copyWith(news: news, isLoading: false)));
+  }
+
+  Future<void> _changeTabEvent(
+      ChangeTab event, Emitter<ListNewsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    final response = await getNews.call(QueryParams(
+        isHeadLines: event.tab == 0, searchValue: state.searchValue));
+    response.fold((failure) => null, (news) {
+      emit(state.copyWith(
+          news: news, isLoading: false, isHeadLines: event.tab == 0));
+    });
+  }
+
+  Future<void> _searchEvent(
+      SearchEvent event, Emitter<ListNewsState> emit) async {
+    if (event.searchString.isEmpty) return;
+
+    emit(state.copyWith(isLoading: true, searchValue: event.searchString));
+    final response = await getNews.call(QueryParams(
+        searchValue: event.searchString, isHeadLines: state.isHeadLines));
+    response.fold((failure) => null, (news) {
+      emit(state.copyWith(news: news, isLoading: false));
+    });
+  }
+
+  Future<void> _clearSearchEvent(
+      ClearSearchEvent event, Emitter<ListNewsState> emit) async {
+    emit(state.copyWith(isLoading: true, searchValue: ''));
+    final response =
+        await getNews.call(QueryParams(isHeadLines: state.isHeadLines));
+    response.fold((failure) => null, (news) {
+      emit(state.copyWith(news: news, isLoading: false));
+    });
   }
 }
