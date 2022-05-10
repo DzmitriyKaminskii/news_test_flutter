@@ -1,0 +1,13 @@
+{
+  "app_title": "Latest news",
+  "search_placeholder": "Search...",
+  "clear_button": "Clear",
+  "headlines_tab": "Top Headlines",
+  "everything_tab": "Everything",
+  "chip_title": "Top 5 sources (multiple choice)",
+  "news_not_found": "News not found",
+  "period_title": "Period:",
+  "selected_date": "  Selected date",
+  "sort_title": "+ Sort:",
+  "date_order": "(date/scr) asc/desc"
+}

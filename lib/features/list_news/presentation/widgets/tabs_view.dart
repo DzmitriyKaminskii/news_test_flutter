@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/domain/entities/news.dart';
 
 import 'one_news.dart';
@@ -47,7 +48,7 @@ class _ListNews extends StatelessWidget {
                 imageSrc: item.imageScr ?? '');
           });
     } else {
-      return const Center(child: Text('News not found'));
+      return Center(child: Text('news_not_found'.i18n()));
     }
   }
 }

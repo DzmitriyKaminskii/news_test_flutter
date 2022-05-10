@@ -1,0 +1,13 @@
+{
+  "app_title": "Последние новости",
+  "search_placeholder": "Поиск...",
+  "clear_button": "Очистить",
+  "headlines_tab": "Последние",
+  "everything_tab": "Все",
+  "chip_title": "5 Лучших источников (множественный выбор)",
+  "news_not_found": "Новости не найдены",
+  "period_title": "Дата:",
+  "selected_date": "Выбраная дата",
+  "sort_title": "+ Сортировка:",
+  "date_order": "(дата/источник) возрастанию/убыванию"
+}

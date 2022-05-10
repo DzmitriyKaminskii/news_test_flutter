@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
 
 class TabsBar extends StatelessWidget {
@@ -21,7 +22,7 @@ class TabsBar extends StatelessWidget {
             height: 50.0,
             child: Center(
               child: Text(
-                'Top Headlines',
+                'headlines_tab'.i18n(),
                 style: TextStyle(
                   color: Colors.grey[800],
                   fontSize: 20.0,
@@ -34,7 +35,7 @@ class TabsBar extends StatelessWidget {
             height: 50.0,
             child: Center(
               child: Text(
-                'Everything',
+                'everything_tab'.i18n(),
                 style: TextStyle(
                   color: Colors.grey[800],
                   fontSize: 20.0,

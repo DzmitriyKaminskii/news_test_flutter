@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
@@ -16,7 +17,7 @@ class NewsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Latest news'),
+        title: Text('app_title'.i18n()),
       ),
       body: DefaultTabController(
         length: 2,
@@ -26,7 +27,6 @@ class NewsListPage extends StatelessWidget {
             bloc.add(InitialEvent());
             return bloc;
           },
-          //create: (context) => locator<ListNewsBloc>(),
           child: BlocBuilder<ListNewsBloc, ListNewsState>(
               builder: (context, state) {
             return LoaderOverlay(

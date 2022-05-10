@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class FilterSortBlock extends StatelessWidget {
   const FilterSortBlock({Key? key}) : super(key: key);
@@ -14,9 +15,9 @@ class FilterSortBlock extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'Period:',
-                style: TextStyle(
+              Text(
+                'period_title'.i18n(),
+                style: const TextStyle(
                   color: Colors.blue,
                 ),
               ),
@@ -25,8 +26,8 @@ class FilterSortBlock extends StatelessWidget {
                   padding: const EdgeInsets.all(0.0),
                 ),
                 onPressed: () {},
-                child: const Text(
-                  'Selected date',
+                child: Text(
+                  'selected_date'.i18n(),
                 ),
               ),
             ],
@@ -34,9 +35,9 @@ class FilterSortBlock extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '+ Sort:',
-                style: TextStyle(
+              Text(
+                'sort_title'.i18n(),
+                style: const TextStyle(
                   color: Colors.blue,
                 ),
               ),
@@ -45,7 +46,7 @@ class FilterSortBlock extends StatelessWidget {
                     padding: const EdgeInsets.all(0.0),
                   ),
                   onPressed: () {},
-                  child: const Text('(date/scr) asc/desc'))
+                  child: Text('date_order'.i18n()))
             ],
           )
         ],

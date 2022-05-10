@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 
@@ -26,7 +27,7 @@ class FilterChipBlock extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Top 5 sources (multiple choice)',
+                'chip_title'.i18n(),
                 style: TextStyle(
                     color: Colors.grey[500],
                     fontWeight: FontWeight.w500,

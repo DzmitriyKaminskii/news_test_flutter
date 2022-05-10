@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/page/news_list_page.dart';
 import 'package:news_test_flutter/injection.dart';
 
@@ -13,9 +15,21 @@ class AppWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    LocalJsonLocalization.delegate.directories = ['lib/i18n'];
+
+    return MaterialApp(
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('ru', 'BY'),
+      ],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        LocalJsonLocalization.delegate,
+      ],
       debugShowCheckedModeBanner: false,
-      home: NewsListPage(),
+      home: const NewsListPage(),
     );
   }
 }
