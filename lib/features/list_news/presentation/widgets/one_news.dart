@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_test_flutter/theme/padding_edge.dart';
+import 'package:news_test_flutter/theme/theme_text.dart';
 
 class OneNews extends StatelessWidget {
   const OneNews(
@@ -25,43 +27,31 @@ class OneNews extends StatelessWidget {
             width: 2.0,
           )),
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: PaddingEdge.allTen,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+              padding: PaddingEdge.leftTen,
               child: SizedBox(
                 width: 250,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(title,
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: ThemeText.newsTitle,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: 10.0,
                     ),
                     Text(subTitle,
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: ThemeText.newsSubTitle,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: 10.0,
                     ),
                     Text('By: $sources',
-                        style: TextStyle(
-                          color: Colors.purple[400],
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: ThemeText.newsSource,
                         overflow: TextOverflow.ellipsis),
                   ],
                 ),

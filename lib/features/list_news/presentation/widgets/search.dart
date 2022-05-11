@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
+import 'package:news_test_flutter/theme/padding_edge.dart';
+import 'package:news_test_flutter/theme/theme_text.dart';
 
 class Search extends StatelessWidget {
   Search({Key? key, required this.searchString}) : super(key: key);
@@ -14,7 +16,7 @@ class Search extends StatelessWidget {
     _searchController.text = searchString;
 
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: PaddingEdge.allFive,
       child: Row(
         children: [
           Expanded(
@@ -24,18 +26,14 @@ class Search extends StatelessWidget {
                 BlocProvider.of<ListNewsBloc>(context)
                     .add(SearchEvent(searchString: value));
               },
-              style: const TextStyle(fontSize: 18.0),
+              style: ThemeText.searchText,
               decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  contentPadding: PaddingEdge.leftFifteen,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     borderSide: BorderSide.none,
                   ),
-                  hintStyle: const TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  hintStyle: ThemeText.searchText,
                   hintText: 'search_placeholder'.i18n(),
                   filled: true,
                   fillColor: Colors.grey[400]),
@@ -48,11 +46,7 @@ class Search extends StatelessWidget {
             },
             child: Text(
               'clear_button'.i18n(),
-              style: const TextStyle(
-                fontSize: 18.0,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
+              style: ThemeText.searchText,
             ),
           )
         ],

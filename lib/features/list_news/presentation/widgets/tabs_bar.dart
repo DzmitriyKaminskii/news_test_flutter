@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
+import 'package:news_test_flutter/theme/padding_edge.dart';
+import 'package:news_test_flutter/theme/theme_text.dart';
 
 class TabsBar extends StatelessWidget {
   const TabsBar({Key? key}) : super(key: key);
@@ -19,28 +21,20 @@ class TabsBar extends StatelessWidget {
         ),
         tabs: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            padding: PaddingEdge.tabPadding,
             child: Center(
               child: Text(
                 'headlines_tab'.i18n(),
-                style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: ThemeText.tabBarTitle,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            padding: PaddingEdge.tabPadding,
             child: Center(
               child: Text(
                 'everything_tab'.i18n(),
-                style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: ThemeText.tabBarTitle,
               ),
             ),
           ),

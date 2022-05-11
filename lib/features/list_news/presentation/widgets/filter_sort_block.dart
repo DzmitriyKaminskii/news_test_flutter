@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:news_test_flutter/theme/padding_edge.dart';
+import 'package:news_test_flutter/theme/theme_text.dart';
 
 class FilterSortBlock extends StatelessWidget {
   const FilterSortBlock({Key? key}) : super(key: key);
@@ -7,7 +9,7 @@ class FilterSortBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+      padding: PaddingEdge.allTen,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -17,11 +19,12 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'period_title'.i18n(),
-                style: const TextStyle(
-                  color: Colors.blue,
-                ),
+                style: ThemeText.sortTitle,
               ),
               TextButton(
+                style: TextButton.styleFrom(
+                  padding: PaddingEdge.allZero,
+                ),
                 onPressed: () {},
                 child: Text(
                   'selected_date'.i18n(),
@@ -34,13 +37,11 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'sort_title'.i18n(),
-                style: const TextStyle(
-                  color: Colors.blue,
-                ),
+                style: ThemeText.sortTitle,
               ),
               TextButton(
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(0.0),
+                    padding: PaddingEdge.allZero,
                   ),
                   onPressed: () {},
                   child: Text('date_order'.i18n()))
