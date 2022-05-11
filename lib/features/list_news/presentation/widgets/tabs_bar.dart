@@ -18,8 +18,8 @@ class TabsBar extends StatelessWidget {
           color: Colors.grey[600],
         ),
         tabs: [
-          SizedBox(
-            height: 50.0,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Center(
               child: Text(
                 'headlines_tab'.i18n(),
@@ -31,8 +31,8 @@ class TabsBar extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 50.0,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Center(
               child: Text(
                 'everything_tab'.i18n(),

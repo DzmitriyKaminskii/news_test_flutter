@@ -16,39 +16,35 @@ class FilterChipBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100.0,
-      width: double.infinity,
-      child: Material(
-        color: Colors.grey[300],
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(15.0, 10.0, 10.0, 15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'chip_title'.i18n(),
-                style: TextStyle(
-                    color: Colors.grey[500],
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.0),
+    return Material(
+      color: Colors.grey[300],
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(15.0, 10.0, 10.0, 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'chip_title'.i18n(),
+              style: TextStyle(
+                  color: Colors.grey[500],
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.0),
+            ),
+            MultiSelectChipDisplay(
+              scroll: true,
+              chipColor: Colors.purple[100],
+              textStyle: const TextStyle(
+                color: Colors.black,
               ),
-              MultiSelectChipDisplay(
-                scroll: true,
-                chipColor: Colors.purple[100],
-                textStyle: const TextStyle(
-                  color: Colors.black,
+              shape: StadiumBorder(
+                side: BorderSide(
+                  color: Colors.purple[400] ?? Colors.purple,
                 ),
-                shape: StadiumBorder(
-                  side: BorderSide(
-                    color: Colors.purple[400] ?? Colors.purple,
-                  ),
-                ),
-                items: _newsAgencies.map((e) => MultiSelectItem(e, e)).toList(),
-                onTap: (value) {},
               ),
-            ],
-          ),
+              items: _newsAgencies.map((e) => MultiSelectItem(e, e)).toList(),
+              onTap: (value) {},
+            ),
+          ],
         ),
       ),
     );
