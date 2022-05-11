@@ -22,9 +22,6 @@ class FilterSortBlock extends StatelessWidget {
                 ),
               ),
               TextButton(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(0.0),
-                ),
                 onPressed: () {},
                 child: Text(
                   'selected_date'.i18n(),

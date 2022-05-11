@@ -18,29 +18,27 @@ class Search extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: SizedBox(
-              height: 40.0,
-              child: TextField(
-                controller: _searchController,
-                onSubmitted: (value) {
-                  BlocProvider.of<ListNewsBloc>(context)
-                      .add(SearchEvent(searchString: value));
-                },
-                style: const TextStyle(fontSize: 18.0),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    hintStyle: const TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    hintText: 'search_placeholder'.i18n(),
-                    filled: true,
-                    fillColor: Colors.grey[400]),
-              ),
+            child: TextField(
+              controller: _searchController,
+              onSubmitted: (value) {
+                BlocProvider.of<ListNewsBloc>(context)
+                    .add(SearchEvent(searchString: value));
+              },
+              style: const TextStyle(fontSize: 18.0),
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  hintStyle: const TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  hintText: 'search_placeholder'.i18n(),
+                  filled: true,
+                  fillColor: Colors.grey[400]),
             ),
           ),
           TextButton(
