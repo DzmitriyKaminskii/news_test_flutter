@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
-import 'package:news_test_flutter/theme/theme_text.dart';
 
 class OneNews extends StatelessWidget {
   const OneNews(
@@ -39,19 +38,19 @@ class OneNews extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(title,
-                        style: ThemeText.newsTitle,
+                        style: Theme.of(context).textTheme.headline4,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: 10.0,
                     ),
                     Text(subTitle,
-                        style: ThemeText.newsSubTitle,
+                        style: Theme.of(context).textTheme.headline5,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: 10.0,
                     ),
                     Text('By: $sources',
-                        style: ThemeText.newsSource,
+                        style: Theme.of(context).textTheme.headline6,
                         overflow: TextOverflow.ellipsis),
                   ],
                 ),

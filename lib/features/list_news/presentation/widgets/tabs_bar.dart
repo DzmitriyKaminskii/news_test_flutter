@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
-import 'package:news_test_flutter/theme/theme_text.dart';
 
 class TabsBar extends StatelessWidget {
   const TabsBar({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class TabsBar extends StatelessWidget {
             child: Center(
               child: Text(
                 'headlines_tab'.i18n(),
-                style: ThemeText.tabBarTitle,
+                style: Theme.of(context).textTheme.headline1,
               ),
             ),
           ),
@@ -34,7 +33,7 @@ class TabsBar extends StatelessWidget {
             child: Center(
               child: Text(
                 'everything_tab'.i18n(),
-                style: ThemeText.tabBarTitle,
+                style: Theme.of(context).textTheme.headline1,
               ),
             ),
           ),

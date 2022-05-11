@@ -3,7 +3,6 @@ import 'package:localization/localization.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
-import 'package:news_test_flutter/theme/theme_text.dart';
 
 class FilterChipBlock extends StatelessWidget {
   FilterChipBlock({Key? key}) : super(key: key);
@@ -25,11 +24,14 @@ class FilterChipBlock extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('chip_title'.i18n(), style: ThemeText.chipBlockTitle),
+            Text(
+              'chip_title'.i18n(),
+              style: Theme.of(context).textTheme.headline3,
+            ),
             MultiSelectChipDisplay(
               scroll: true,
               chipColor: Colors.purple[100],
-              textStyle: ThemeText.multiChipText,
+              textStyle: Theme.of(context).textTheme.subtitle2,
               shape: StadiumBorder(
                 side: BorderSide(
                   color: Colors.purple[400] ?? Colors.purple,

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
-import 'package:news_test_flutter/theme/theme_text.dart';
 
 class Search extends StatelessWidget {
   Search({Key? key, required this.searchString}) : super(key: key);
@@ -26,14 +25,14 @@ class Search extends StatelessWidget {
                 BlocProvider.of<ListNewsBloc>(context)
                     .add(SearchEvent(searchString: value));
               },
-              style: ThemeText.searchText,
+              style: Theme.of(context).textTheme.headline2,
               decoration: InputDecoration(
                   contentPadding: PaddingEdge.leftFifteen,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     borderSide: BorderSide.none,
                   ),
-                  hintStyle: ThemeText.searchText,
+                  hintStyle: Theme.of(context).textTheme.headline2,
                   hintText: 'search_placeholder'.i18n(),
                   filled: true,
                   fillColor: Colors.grey[400]),
@@ -46,7 +45,7 @@ class Search extends StatelessWidget {
             },
             child: Text(
               'clear_button'.i18n(),
-              style: ThemeText.searchText,
+              style: Theme.of(context).textTheme.headline2,
             ),
           )
         ],

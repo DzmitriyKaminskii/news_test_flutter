@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
-import 'package:news_test_flutter/theme/theme_text.dart';
 
 class FilterSortBlock extends StatelessWidget {
   const FilterSortBlock({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'period_title'.i18n(),
-                style: ThemeText.sortTitle,
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               TextButton(
                 style: TextButton.styleFrom(
@@ -37,7 +36,7 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'sort_title'.i18n(),
-                style: ThemeText.sortTitle,
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               TextButton(
                   style: TextButton.styleFrom(
