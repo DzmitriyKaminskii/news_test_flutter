@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news/list_news_bloc.dart';
+import 'package:news_test_flutter/features/list_news/presentation/bloc/search/search_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/search.dart';
@@ -23,12 +24,19 @@ class NewsListPage extends StatelessWidget {
       ),
       body: DefaultTabController(
         length: 2,
-        child: BlocProvider<ListNewsBloc>(
-          create: (context) {
-            var bloc = locator<ListNewsBloc>();
-            bloc.add(InitialEvent());
-            return bloc;
-          },
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider<ListNewsBloc>(
+              create: (BuildContext context) {
+                var bloc = locator<ListNewsBloc>();
+                bloc.add(InitialEvent());
+                return bloc;
+              },
+            ),
+            BlocProvider<SearchBloc>(
+              create: (BuildContext context) => locator<SearchBloc>(),
+            ),
+          ],
           child: BlocBuilder<ListNewsBloc, ListNewsState>(
               builder: (context, state) {
             return LoaderOverlay(

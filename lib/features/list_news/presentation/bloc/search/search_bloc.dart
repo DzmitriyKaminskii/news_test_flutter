@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'search_bloc.freezed.dart';
 part 'search_event.dart';
 part 'search_state.dart';
 
+@injectable
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc() : super(SearchState.initial()) {
     on<SearchValueEvent>(_searchEvent);
