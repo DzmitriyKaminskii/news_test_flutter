@@ -9,6 +9,7 @@ import 'package:news_test_flutter/features/list_news/presentation/widgets/search
 import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_bar.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_view.dart';
 import 'package:news_test_flutter/injection.dart';
+import 'package:news_test_flutter/theme/dimensions.dart';
 
 class NewsListPage extends StatelessWidget {
   const NewsListPage({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class NewsListPage extends StatelessWidget {
                   ),
                   const TabsBar(),
                   const SizedBox(
-                    height: 10.0,
+                    height: Dimensions.defaultSpacer,
                   ),
                   FilterChipBlock(),
                   const FilterSortBlock(),

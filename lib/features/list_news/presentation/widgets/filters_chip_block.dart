@@ -18,7 +18,7 @@ class FilterChipBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.grey[300],
+      color: Theme.of(context).colorScheme.secondaryContainer,
       child: Padding(
         padding: PaddingEdge.chipPadding,
         child: Column(
@@ -30,11 +30,11 @@ class FilterChipBlock extends StatelessWidget {
             ),
             MultiSelectChipDisplay(
               scroll: true,
-              chipColor: Colors.purple[100],
+              chipColor: Theme.of(context).colorScheme.tertiary,
               textStyle: Theme.of(context).textTheme.subtitle2,
               shape: StadiumBorder(
                 side: BorderSide(
-                  color: Colors.purple[400] ?? Colors.purple,
+                  color: Theme.of(context).colorScheme.onTertiary,
                 ),
               ),
               items: _newsAgencies.map((e) => MultiSelectItem(e, e)).toList(),

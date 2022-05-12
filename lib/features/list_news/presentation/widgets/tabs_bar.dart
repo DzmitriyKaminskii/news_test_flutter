@@ -10,13 +10,13 @@ class TabsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.grey[400],
+      color: Theme.of(context).colorScheme.onPrimaryContainer,
       child: TabBar(
         onTap: (element) {
           BlocProvider.of<ListNewsBloc>(context).add(ChangeTab(tab: element));
         },
         indicator: BoxDecoration(
-          color: Colors.grey[600],
+          color: Theme.of(context).colorScheme.primaryContainer,
         ),
         tabs: [
           Padding(

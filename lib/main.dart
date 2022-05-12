@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/page/news_list_page.dart';
 import 'package:news_test_flutter/injection.dart';
+import 'package:news_test_flutter/theme/app_colors.dart';
 import 'package:news_test_flutter/theme/theme_text.dart';
 
 void main() {
@@ -31,6 +32,7 @@ class AppWidgets extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorScheme: AppColors.themeColors,
         textTheme: ThemeText.textTheme,
       ),
       home: const NewsListPage(),

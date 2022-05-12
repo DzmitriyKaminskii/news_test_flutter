@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
+import 'package:news_test_flutter/theme/dimensions.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
 
 class Search extends StatelessWidget {
@@ -29,13 +30,15 @@ class Search extends StatelessWidget {
               decoration: InputDecoration(
                   contentPadding: PaddingEdge.leftFifteen,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(
+                      Dimensions.searchBorderRadius,
+                    ),
                     borderSide: BorderSide.none,
                   ),
                   hintStyle: Theme.of(context).textTheme.headline2,
                   hintText: 'search_placeholder'.i18n(),
                   filled: true,
-                  fillColor: Colors.grey[400]),
+                  fillColor: Theme.of(context).colorScheme.onPrimaryContainer),
             ),
           ),
           TextButton(

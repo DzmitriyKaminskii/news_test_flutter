@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_test_flutter/theme/dimensions.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
 
 class OneNews extends StatelessWidget {
@@ -18,12 +19,12 @@ class OneNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey[200],
+      color: Theme.of(context).colorScheme.onSecondaryContainer,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(Dimensions.cardBorderRadius),
           side: BorderSide(
-            color: Colors.grey[400] ?? Colors.grey,
-            width: 2.0,
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            width: Dimensions.cardBorderSideWidth,
           )),
       child: Padding(
         padding: PaddingEdge.allTen,
@@ -33,7 +34,7 @@ class OneNews extends StatelessWidget {
             Padding(
               padding: PaddingEdge.leftTen,
               child: SizedBox(
-                width: 250,
+                width: Dimensions.newsTextWidth,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -41,13 +42,13 @@ class OneNews extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
-                      height: 10.0,
+                      height: Dimensions.defaultSpacer,
                     ),
                     Text(subTitle,
                         style: Theme.of(context).textTheme.headline5,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
-                      height: 10.0,
+                      height: Dimensions.defaultSpacer,
                     ),
                     Text('By: $sources',
                         style: Theme.of(context).textTheme.headline6,
@@ -59,13 +60,13 @@ class OneNews extends StatelessWidget {
             imageSrc.isNotEmpty
                 ? Image.network(
                     imageSrc,
-                    height: 100,
-                    width: 100,
+                    height: Dimensions.newsImageSize,
+                    width: Dimensions.newsImageSize,
                   )
                 : Image.asset(
                     'assets/noimage.png',
-                    height: 100,
-                    width: 100,
+                    height: Dimensions.newsImageSize,
+                    width: Dimensions.newsImageSize,
                   ),
           ],
         ),
