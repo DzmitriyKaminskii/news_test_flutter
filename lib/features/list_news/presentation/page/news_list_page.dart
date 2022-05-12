@@ -37,29 +37,41 @@ class NewsListPage extends StatelessWidget {
               create: (BuildContext context) => locator<SearchBloc>(),
             ),
           ],
-          child: BlocBuilder<ListNewsBloc, ListNewsState>(
-              builder: (context, state) {
-            return LoaderOverlay(
-              child: Column(
-                children: [
-                  _Loader(isLoading: state.isLoading),
-                  Search(
-                    searchString: state.searchValue,
-                  ),
-                  const TabsBar(),
-                  const SizedBox(
-                    height: Dimensions.defaultSpacer,
-                  ),
-                  FilterChipBlock(),
-                  const FilterSortBlock(),
-                  TabsView(
-                    newsList: state.news,
-                    isHeadLines: state.isHeadLines,
-                  ),
-                ],
-              ),
-            );
-          }),
+          child: LoaderOverlay(
+            child: Column(
+              children: [
+                BlocConsumer<SearchBloc, SearchState>(
+                  builder: (context, state) =>
+                      Search(searchString: state.searchValue),
+                  listener: (context, state) {
+                    BlocProvider.of<ListNewsBloc>(context).add(
+                        AddSearchValueEvent(searchString: state.searchValue));
+                  },
+                ),
+                const TabsBar(),
+                const SizedBox(
+                  height: Dimensions.defaultSpacer,
+                ),
+                FilterChipBlock(),
+                const FilterSortBlock(),
+                BlocBuilder<ListNewsBloc, ListNewsState>(
+                  builder: (context, state) {
+                    return Expanded(
+                      child: Column(
+                        children: [
+                          _Loader(isLoading: state.isLoading),
+                          TabsView(
+                            newsList: state.news,
+                            isHeadLines: state.isHeadLines,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

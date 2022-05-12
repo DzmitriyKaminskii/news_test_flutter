@@ -16,8 +16,7 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
   ListNewsBloc({required this.getNews}) : super(ListNewsState.initial()) {
     on<InitialEvent>(_initialEvent);
     on<ChangeTab>(_changeTabEvent);
-    on<SearchEvent>(_searchEvent);
-    on<ClearSearchEvent>(_clearSearchEvent);
+    on<AddSearchValueEvent>(_searchEvent);
   }
 
   Future<void> _initialEvent(
@@ -47,22 +46,10 @@ class ListNewsBloc extends Bloc<ListNewsEvent, ListNewsState> {
   }
 
   Future<void> _searchEvent(
-      SearchEvent event, Emitter<ListNewsState> emit) async {
-    if (event.searchString.isEmpty) return;
-
+      AddSearchValueEvent event, Emitter<ListNewsState> emit) async {
     emit(state.copyWith(isLoading: true, searchValue: event.searchString));
     final response = await getNews.call(QueryParams(
         searchValue: event.searchString, isHeadLines: state.isHeadLines));
-    response.fold((failure) => emit(state.copyWith(isLoading: false)), (news) {
-      emit(state.copyWith(news: news, isLoading: false));
-    });
-  }
-
-  Future<void> _clearSearchEvent(
-      ClearSearchEvent event, Emitter<ListNewsState> emit) async {
-    emit(state.copyWith(isLoading: true, searchValue: ''));
-    final response =
-        await getNews.call(QueryParams(isHeadLines: state.isHeadLines));
     response.fold((failure) => emit(state.copyWith(isLoading: false)), (news) {
       emit(state.copyWith(news: news, isLoading: false));
     });

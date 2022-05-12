@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news/list_news_bloc.dart';
+import 'package:news_test_flutter/features/list_news/presentation/bloc/search/search_bloc.dart';
 import 'package:news_test_flutter/theme/dimensions.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
 
@@ -23,28 +23,29 @@ class Search extends StatelessWidget {
             child: TextField(
               controller: _searchController,
               onSubmitted: (value) {
-                BlocProvider.of<ListNewsBloc>(context)
-                    .add(SearchEvent(searchString: value));
+                BlocProvider.of<SearchBloc>(context)
+                    .add(SearchValueEvent(searchString: value));
               },
               style: Theme.of(context).textTheme.headline2,
               decoration: InputDecoration(
-                  contentPadding: PaddingEdge.leftFifteen,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      Dimensions.searchBorderRadius,
-                    ),
-                    borderSide: BorderSide.none,
+                contentPadding: PaddingEdge.leftFifteen,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    Dimensions.searchBorderRadius,
                   ),
-                  hintStyle: Theme.of(context).textTheme.headline2,
-                  hintText: 'search_placeholder'.i18n(),
-                  filled: true,
-                  fillColor: Theme.of(context).colorScheme.onPrimaryContainer),
+                  borderSide: BorderSide.none,
+                ),
+                hintStyle: Theme.of(context).textTheme.headline2,
+                hintText: 'search_placeholder'.i18n(),
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
+              ),
             ),
           ),
           TextButton(
             onPressed: () {
               _searchController.clear();
-              BlocProvider.of<ListNewsBloc>(context).add(ClearSearchEvent());
+              BlocProvider.of<SearchBloc>(context).add(ClearSearchEvent());
             },
             child: Text(
               'clear_button'.i18n(),

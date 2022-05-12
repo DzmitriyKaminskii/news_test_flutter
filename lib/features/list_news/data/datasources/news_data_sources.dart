@@ -30,7 +30,9 @@ class NewsDataSourcesImpl implements NewsDataSources {
 
   @override
   Future<List<NewsModel>> getNews(QueryParams params) {
-    return _getNewsFromUrl(_getQueryPath(params));
+    var test = _getQueryPath(params);
+    print(test);
+    return _getNewsFromUrl(test);
   }
 
   Future<List<NewsModel>> _getNewsFromUrl(Uri url) async {
