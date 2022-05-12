@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:localization/localization.dart';
-import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news_bloc.dart';
+import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news/list_news_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/search.dart';

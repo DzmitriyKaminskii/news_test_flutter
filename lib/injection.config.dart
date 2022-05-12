@@ -12,7 +12,7 @@ import 'features/list_news/data/datasources/news_data_sources.dart' as _i3;
 import 'features/list_news/data/repositories/news_repository_impl.dart' as _i6;
 import 'features/list_news/domain/repositories/news_repository.dart' as _i5;
 import 'features/list_news/domain/usercases/get_news.dart' as _i7;
-import 'features/list_news/presentation/bloc/list_news_bloc.dart'
+import 'features/list_news/presentation/bloc/list_news/list_news_bloc.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

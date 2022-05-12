@@ -111,11 +111,11 @@ class _$ListNewsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ListNewsStateCopyWith<$Res>
+abstract class _$$_ListNewsStateCopyWith<$Res>
     implements $ListNewsStateCopyWith<$Res> {
-  factory _$ListNewsStateCopyWith(
-          _ListNewsState value, $Res Function(_ListNewsState) then) =
-      __$ListNewsStateCopyWithImpl<$Res>;
+  factory _$$_ListNewsStateCopyWith(
+          _$_ListNewsState value, $Res Function(_$_ListNewsState) then) =
+      __$$_ListNewsStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {String searchValue,
@@ -130,15 +130,15 @@ abstract class _$ListNewsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ListNewsStateCopyWithImpl<$Res>
+class __$$_ListNewsStateCopyWithImpl<$Res>
     extends _$ListNewsStateCopyWithImpl<$Res>
-    implements _$ListNewsStateCopyWith<$Res> {
-  __$ListNewsStateCopyWithImpl(
-      _ListNewsState _value, $Res Function(_ListNewsState) _then)
-      : super(_value, (v) => _then(v as _ListNewsState));
+    implements _$$_ListNewsStateCopyWith<$Res> {
+  __$$_ListNewsStateCopyWithImpl(
+      _$_ListNewsState _value, $Res Function(_$_ListNewsState) _then)
+      : super(_value, (v) => _then(v as _$_ListNewsState));
 
   @override
-  _ListNewsState get _value => super._value as _ListNewsState;
+  _$_ListNewsState get _value => super._value as _$_ListNewsState;
 
   @override
   $Res call({
@@ -152,7 +152,7 @@ class __$ListNewsStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? news = freezed,
   }) {
-    return _then(_ListNewsState(
+    return _then(_$_ListNewsState(
       searchValue: searchValue == freezed
           ? _value.searchValue
           : searchValue // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class __$ListNewsStateCopyWithImpl<$Res>
           : isHeadLines // ignore: cast_nullable_to_non_nullable
               as bool,
       sources: sources == freezed
-          ? _value.sources
+          ? _value._sources
           : sources // ignore: cast_nullable_to_non_nullable
               as List<String>,
       dateFrom: dateFrom == freezed
@@ -186,7 +186,7 @@ class __$ListNewsStateCopyWithImpl<$Res>
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       news: news == freezed
-          ? _value.news
+          ? _value._news
           : news // ignore: cast_nullable_to_non_nullable
               as List<News>,
     ));
@@ -246,18 +246,18 @@ class _$_ListNewsState implements _ListNewsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ListNewsState &&
+            other is _$_ListNewsState &&
             const DeepCollectionEquality()
                 .equals(other.searchValue, searchValue) &&
             const DeepCollectionEquality()
                 .equals(other.isHeadLines, isHeadLines) &&
-            const DeepCollectionEquality().equals(other.sources, sources) &&
+            const DeepCollectionEquality().equals(other._sources, _sources) &&
             const DeepCollectionEquality().equals(other.dateFrom, dateFrom) &&
             const DeepCollectionEquality().equals(other.dateTo, dateTo) &&
             const DeepCollectionEquality().equals(other.sortValue, sortValue) &&
             const DeepCollectionEquality().equals(other.sortType, sortType) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.news, news));
+            const DeepCollectionEquality().equals(other._news, _news));
   }
 
   @override
@@ -265,18 +265,18 @@ class _$_ListNewsState implements _ListNewsState {
       runtimeType,
       const DeepCollectionEquality().hash(searchValue),
       const DeepCollectionEquality().hash(isHeadLines),
-      const DeepCollectionEquality().hash(sources),
+      const DeepCollectionEquality().hash(_sources),
       const DeepCollectionEquality().hash(dateFrom),
       const DeepCollectionEquality().hash(dateTo),
       const DeepCollectionEquality().hash(sortValue),
       const DeepCollectionEquality().hash(sortType),
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(news));
+      const DeepCollectionEquality().hash(_news));
 
   @JsonKey(ignore: true)
   @override
-  _$ListNewsStateCopyWith<_ListNewsState> get copyWith =>
-      __$ListNewsStateCopyWithImpl<_ListNewsState>(this, _$identity);
+  _$$_ListNewsStateCopyWith<_$_ListNewsState> get copyWith =>
+      __$$_ListNewsStateCopyWithImpl<_$_ListNewsState>(this, _$identity);
 }
 
 abstract class _ListNewsState implements ListNewsState {
@@ -311,6 +311,6 @@ abstract class _ListNewsState implements ListNewsState {
   List<News> get news => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ListNewsStateCopyWith<_ListNewsState> get copyWith =>
+  _$$_ListNewsStateCopyWith<_$_ListNewsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
