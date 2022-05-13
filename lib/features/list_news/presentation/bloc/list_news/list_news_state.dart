@@ -4,7 +4,7 @@ part of 'list_news_bloc.dart';
 class ListNewsState with _$ListNewsState {
   const factory ListNewsState({
     required String searchValue,
-    required bool isHeadLines,
+    required TabBarEnum tab,
     required List<String> sources,
     required String dateFrom,
     required String dateTo,
@@ -16,7 +16,7 @@ class ListNewsState with _$ListNewsState {
 
   factory ListNewsState.initial() => const ListNewsState(
       searchValue: "",
-      isHeadLines: true,
+      tab: TabBarEnum.topHeadLines,
       sources: [],
       dateFrom: '',
       dateTo: '',

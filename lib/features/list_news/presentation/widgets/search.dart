@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
+import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news/list_news_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/search/search_bloc.dart';
 import 'package:news_test_flutter/theme/dimensions.dart';
 import 'package:news_test_flutter/theme/padding_edge.dart';
 
 class Search extends StatelessWidget {
-  Search({Key? key, required this.searchString}) : super(key: key);
+  const Search({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<SearchBloc, SearchState>(
+      builder: (context, state) =>
+          _SearchWidget(searchString: state.searchValue),
+      listener: (context, state) {
+        BlocProvider.of<ListNewsBloc>(context).add(
+          AddSearchValueEvent(
+            searchString: state.searchValue,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _SearchWidget extends StatelessWidget {
+  _SearchWidget({Key? key, required this.searchString}) : super(key: key);
 
   final String searchString;
   final _searchController = TextEditingController();

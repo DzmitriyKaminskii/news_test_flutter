@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ListNewsState {
   String get searchValue => throw _privateConstructorUsedError;
-  bool get isHeadLines => throw _privateConstructorUsedError;
+  TabBarEnum get tab => throw _privateConstructorUsedError;
   List<String> get sources => throw _privateConstructorUsedError;
   String get dateFrom => throw _privateConstructorUsedError;
   String get dateTo => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $ListNewsStateCopyWith<$Res> {
       _$ListNewsStateCopyWithImpl<$Res>;
   $Res call(
       {String searchValue,
-      bool isHeadLines,
+      TabBarEnum tab,
       List<String> sources,
       String dateFrom,
       String dateTo,
@@ -60,7 +60,7 @@ class _$ListNewsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchValue = freezed,
-    Object? isHeadLines = freezed,
+    Object? tab = freezed,
     Object? sources = freezed,
     Object? dateFrom = freezed,
     Object? dateTo = freezed,
@@ -74,10 +74,10 @@ class _$ListNewsStateCopyWithImpl<$Res>
           ? _value.searchValue
           : searchValue // ignore: cast_nullable_to_non_nullable
               as String,
-      isHeadLines: isHeadLines == freezed
-          ? _value.isHeadLines
-          : isHeadLines // ignore: cast_nullable_to_non_nullable
-              as bool,
+      tab: tab == freezed
+          ? _value.tab
+          : tab // ignore: cast_nullable_to_non_nullable
+              as TabBarEnum,
       sources: sources == freezed
           ? _value.sources
           : sources // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$$_ListNewsStateCopyWith<$Res>
   @override
   $Res call(
       {String searchValue,
-      bool isHeadLines,
+      TabBarEnum tab,
       List<String> sources,
       String dateFrom,
       String dateTo,
@@ -143,7 +143,7 @@ class __$$_ListNewsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchValue = freezed,
-    Object? isHeadLines = freezed,
+    Object? tab = freezed,
     Object? sources = freezed,
     Object? dateFrom = freezed,
     Object? dateTo = freezed,
@@ -157,10 +157,10 @@ class __$$_ListNewsStateCopyWithImpl<$Res>
           ? _value.searchValue
           : searchValue // ignore: cast_nullable_to_non_nullable
               as String,
-      isHeadLines: isHeadLines == freezed
-          ? _value.isHeadLines
-          : isHeadLines // ignore: cast_nullable_to_non_nullable
-              as bool,
+      tab: tab == freezed
+          ? _value.tab
+          : tab // ignore: cast_nullable_to_non_nullable
+              as TabBarEnum,
       sources: sources == freezed
           ? _value._sources
           : sources // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ class __$$_ListNewsStateCopyWithImpl<$Res>
 class _$_ListNewsState implements _ListNewsState {
   const _$_ListNewsState(
       {required this.searchValue,
-      required this.isHeadLines,
+      required this.tab,
       required final List<String> sources,
       required this.dateFrom,
       required this.dateTo,
@@ -212,7 +212,7 @@ class _$_ListNewsState implements _ListNewsState {
   @override
   final String searchValue;
   @override
-  final bool isHeadLines;
+  final TabBarEnum tab;
   final List<String> _sources;
   @override
   List<String> get sources {
@@ -239,7 +239,7 @@ class _$_ListNewsState implements _ListNewsState {
 
   @override
   String toString() {
-    return 'ListNewsState(searchValue: $searchValue, isHeadLines: $isHeadLines, sources: $sources, dateFrom: $dateFrom, dateTo: $dateTo, sortValue: $sortValue, sortType: $sortType, isLoading: $isLoading, news: $news)';
+    return 'ListNewsState(searchValue: $searchValue, tab: $tab, sources: $sources, dateFrom: $dateFrom, dateTo: $dateTo, sortValue: $sortValue, sortType: $sortType, isLoading: $isLoading, news: $news)';
   }
 
   @override
@@ -249,8 +249,7 @@ class _$_ListNewsState implements _ListNewsState {
             other is _$_ListNewsState &&
             const DeepCollectionEquality()
                 .equals(other.searchValue, searchValue) &&
-            const DeepCollectionEquality()
-                .equals(other.isHeadLines, isHeadLines) &&
+            const DeepCollectionEquality().equals(other.tab, tab) &&
             const DeepCollectionEquality().equals(other._sources, _sources) &&
             const DeepCollectionEquality().equals(other.dateFrom, dateFrom) &&
             const DeepCollectionEquality().equals(other.dateTo, dateTo) &&
@@ -264,7 +263,7 @@ class _$_ListNewsState implements _ListNewsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(searchValue),
-      const DeepCollectionEquality().hash(isHeadLines),
+      const DeepCollectionEquality().hash(tab),
       const DeepCollectionEquality().hash(_sources),
       const DeepCollectionEquality().hash(dateFrom),
       const DeepCollectionEquality().hash(dateTo),
@@ -282,7 +281,7 @@ class _$_ListNewsState implements _ListNewsState {
 abstract class _ListNewsState implements ListNewsState {
   const factory _ListNewsState(
       {required final String searchValue,
-      required final bool isHeadLines,
+      required final TabBarEnum tab,
       required final List<String> sources,
       required final String dateFrom,
       required final String dateTo,
@@ -294,7 +293,7 @@ abstract class _ListNewsState implements ListNewsState {
   @override
   String get searchValue => throw _privateConstructorUsedError;
   @override
-  bool get isHeadLines => throw _privateConstructorUsedError;
+  TabBarEnum get tab => throw _privateConstructorUsedError;
   @override
   List<String> get sources => throw _privateConstructorUsedError;
   @override

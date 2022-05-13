@@ -14,12 +14,12 @@ class AddSearchValueEvent extends ListNewsEvent {
 }
 
 class ChangeTabBar extends ListNewsEvent {
-  final bool isHeadLines;
+  final TabBarEnum tab;
 
-  const ChangeTabBar({required this.isHeadLines});
+  const ChangeTabBar({required this.tab});
 
   @override
-  List<Object?> get props => [isHeadLines];
+  List<Object?> get props => [tab];
 }
 
 class InitialEvent extends ListNewsEvent {

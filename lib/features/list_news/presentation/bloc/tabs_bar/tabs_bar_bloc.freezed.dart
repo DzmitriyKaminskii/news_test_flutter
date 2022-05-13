@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TabsBarState {
-  bool get isHeadLines => throw _privateConstructorUsedError;
+  TabBarEnum get tab => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TabsBarStateCopyWith<TabsBarState> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $TabsBarStateCopyWith<$Res> {
   factory $TabsBarStateCopyWith(
           TabsBarState value, $Res Function(TabsBarState) then) =
       _$TabsBarStateCopyWithImpl<$Res>;
-  $Res call({bool isHeadLines});
+  $Res call({TabBarEnum tab});
 }
 
 /// @nodoc
@@ -41,13 +41,13 @@ class _$TabsBarStateCopyWithImpl<$Res> implements $TabsBarStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? isHeadLines = freezed,
+    Object? tab = freezed,
   }) {
     return _then(_value.copyWith(
-      isHeadLines: isHeadLines == freezed
-          ? _value.isHeadLines
-          : isHeadLines // ignore: cast_nullable_to_non_nullable
-              as bool,
+      tab: tab == freezed
+          ? _value.tab
+          : tab // ignore: cast_nullable_to_non_nullable
+              as TabBarEnum,
     ));
   }
 }
@@ -59,7 +59,7 @@ abstract class _$$_TabsBarStateCopyWith<$Res>
           _$_TabsBarState value, $Res Function(_$_TabsBarState) then) =
       __$$_TabsBarStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isHeadLines});
+  $Res call({TabBarEnum tab});
 }
 
 /// @nodoc
@@ -75,13 +75,13 @@ class __$$_TabsBarStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isHeadLines = freezed,
+    Object? tab = freezed,
   }) {
     return _then(_$_TabsBarState(
-      isHeadLines: isHeadLines == freezed
-          ? _value.isHeadLines
-          : isHeadLines // ignore: cast_nullable_to_non_nullable
-              as bool,
+      tab: tab == freezed
+          ? _value.tab
+          : tab // ignore: cast_nullable_to_non_nullable
+              as TabBarEnum,
     ));
   }
 }
@@ -89,14 +89,14 @@ class __$$_TabsBarStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TabsBarState implements _TabsBarState {
-  const _$_TabsBarState({required this.isHeadLines});
+  const _$_TabsBarState({required this.tab});
 
   @override
-  final bool isHeadLines;
+  final TabBarEnum tab;
 
   @override
   String toString() {
-    return 'TabsBarState(isHeadLines: $isHeadLines)';
+    return 'TabsBarState(tab: $tab)';
   }
 
   @override
@@ -104,13 +104,12 @@ class _$_TabsBarState implements _TabsBarState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TabsBarState &&
-            const DeepCollectionEquality()
-                .equals(other.isHeadLines, isHeadLines));
+            const DeepCollectionEquality().equals(other.tab, tab));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(isHeadLines));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tab));
 
   @JsonKey(ignore: true)
   @override
@@ -119,11 +118,11 @@ class _$_TabsBarState implements _TabsBarState {
 }
 
 abstract class _TabsBarState implements TabsBarState {
-  const factory _TabsBarState({required final bool isHeadLines}) =
+  const factory _TabsBarState({required final TabBarEnum tab}) =
       _$_TabsBarState;
 
   @override
-  bool get isHeadLines => throw _privateConstructorUsedError;
+  TabBarEnum get tab => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_TabsBarStateCopyWith<_$_TabsBarState> get copyWith =>

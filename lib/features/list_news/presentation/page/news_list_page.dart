@@ -10,6 +10,7 @@ import 'package:news_test_flutter/features/list_news/presentation/widgets/filter
 import 'package:news_test_flutter/features/list_news/presentation/widgets/search.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_bar.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/tabs_view.dart';
+import 'package:news_test_flutter/features/list_news/shared/tab_bar_enum.dart';
 import 'package:news_test_flutter/injection.dart';
 import 'package:news_test_flutter/theme/dimensions.dart';
 
@@ -24,7 +25,7 @@ class NewsListPage extends StatelessWidget {
         title: Text('app_title'.i18n()),
       ),
       body: DefaultTabController(
-        length: 2,
+        length: TabBarEnum.values.length,
         child: MultiBlocProvider(
           providers: [
             BlocProvider<ListNewsBloc>(
@@ -44,27 +45,8 @@ class NewsListPage extends StatelessWidget {
           child: LoaderOverlay(
             child: Column(
               children: [
-                BlocConsumer<SearchBloc, SearchState>(
-                  builder: (context, state) =>
-                      Search(searchString: state.searchValue),
-                  listener: (context, state) {
-                    BlocProvider.of<ListNewsBloc>(context).add(
-                      AddSearchValueEvent(
-                        searchString: state.searchValue,
-                      ),
-                    );
-                  },
-                ),
-                BlocConsumer<TabsBarBloc, TabsBarState>(
-                  builder: (context, state) => const TabsBar(),
-                  listener: (context, state) {
-                    BlocProvider.of<ListNewsBloc>(context).add(
-                      ChangeTabBar(
-                        isHeadLines: state.isHeadLines,
-                      ),
-                    );
-                  },
-                ),
+                const Search(),
+                const TabsBar(),
                 const SizedBox(
                   height: Dimensions.defaultSpacer,
                 ),
@@ -76,10 +58,7 @@ class NewsListPage extends StatelessWidget {
                       child: Column(
                         children: [
                           _Loader(isLoading: state.isLoading),
-                          TabsView(
-                            newsList: state.news,
-                            isHeadLines: state.isHeadLines,
-                          ),
+                          TabsView(newsList: state.news, activeTab: state.tab),
                         ],
                       ),
                     );

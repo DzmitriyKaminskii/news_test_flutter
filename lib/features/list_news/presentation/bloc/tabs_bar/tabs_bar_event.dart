@@ -5,10 +5,10 @@ abstract class TabsBarEvent extends Equatable {
 }
 
 class ChangeTab extends TabsBarEvent {
-  final int tab;
+  final int tabNumber;
 
-  const ChangeTab({required this.tab});
+  const ChangeTab({required this.tabNumber});
 
   @override
-  List<Object?> get props => [tab];
+  List<Object?> get props => [tabNumber];
 }

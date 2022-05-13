@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:news_test_flutter/features/list_news/shared/tab_bar_enum.dart';
 
 part 'tabs_bar_bloc.freezed.dart';
 part 'tabs_bar_event.dart';
@@ -14,12 +15,8 @@ class TabsBarBloc extends Bloc<TabsBarEvent, TabsBarState> {
   }
 
   void _changeTabBar(ChangeTab event, Emitter<TabsBarState> emit) {
-    if (state.isHeadLines == (event.tab == 0)) return;
+    if (state.tab.index == event.tabNumber) return;
 
-    emit(
-      state.copyWith(
-        isHeadLines: event.tab == 0,
-      ),
-    );
+    emit(state.copyWith(tab: TabBarEnum.values[event.tabNumber]));
   }
 }
