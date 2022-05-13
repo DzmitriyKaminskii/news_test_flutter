@@ -17,12 +17,20 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   void _searchEvent(SearchValueEvent event, Emitter<SearchState> emit) {
     if (event.searchString.isEmpty) return;
 
-    emit(state.copyWith(searchValue: event.searchString));
+    emit(
+      state.copyWith(
+        searchValue: event.searchString,
+      ),
+    );
   }
 
   void _clearSearchEvent(ClearSearchEvent event, Emitter<SearchState> emit) {
     if (state.searchValue.isEmpty) return;
 
-    emit(state.copyWith(searchValue: ''));
+    emit(
+      state.copyWith(
+        searchValue: '',
+      ),
+    );
   }
 }

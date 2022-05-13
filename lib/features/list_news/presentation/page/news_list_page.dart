@@ -4,6 +4,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 import 'package:localization/localization.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/list_news/list_news_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/bloc/search/search_bloc.dart';
+import 'package:news_test_flutter/features/list_news/presentation/bloc/tabs_bar/tabs_bar_bloc.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filter_sort_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/filters_chip_block.dart';
 import 'package:news_test_flutter/features/list_news/presentation/widgets/search.dart';
@@ -36,6 +37,9 @@ class NewsListPage extends StatelessWidget {
             BlocProvider<SearchBloc>(
               create: (BuildContext context) => locator<SearchBloc>(),
             ),
+            BlocProvider<TabsBarBloc>(
+              create: (BuildContext context) => locator<TabsBarBloc>(),
+            )
           ],
           child: LoaderOverlay(
             child: Column(
@@ -45,10 +49,22 @@ class NewsListPage extends StatelessWidget {
                       Search(searchString: state.searchValue),
                   listener: (context, state) {
                     BlocProvider.of<ListNewsBloc>(context).add(
-                        AddSearchValueEvent(searchString: state.searchValue));
+                      AddSearchValueEvent(
+                        searchString: state.searchValue,
+                      ),
+                    );
                   },
                 ),
-                const TabsBar(),
+                BlocConsumer<TabsBarBloc, TabsBarState>(
+                  builder: (context, state) => const TabsBar(),
+                  listener: (context, state) {
+                    BlocProvider.of<ListNewsBloc>(context).add(
+                      ChangeTabBar(
+                        isHeadLines: state.isHeadLines,
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(
                   height: Dimensions.defaultSpacer,
                 ),

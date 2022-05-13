@@ -13,13 +13,13 @@ class AddSearchValueEvent extends ListNewsEvent {
   List<Object?> get props => [searchString];
 }
 
-class ChangeTab extends ListNewsEvent {
-  final int tab;
+class ChangeTabBar extends ListNewsEvent {
+  final bool isHeadLines;
 
-  const ChangeTab({required this.tab});
+  const ChangeTabBar({required this.isHeadLines});
 
   @override
-  List<Object?> get props => [tab];
+  List<Object?> get props => [isHeadLines];
 }
 
 class InitialEvent extends ListNewsEvent {
