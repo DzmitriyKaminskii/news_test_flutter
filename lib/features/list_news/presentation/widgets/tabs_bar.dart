@@ -56,7 +56,7 @@ class _OneTab extends StatelessWidget {
     return Padding(
       padding: PaddingEdge.tabPadding,
       child: Center(
-        child: Text(title, style: Theme.of(context).textTheme.headline1),
+        child: Text(title, style: Theme.of(context).textTheme.displayLarge),
       ),
     );
   }

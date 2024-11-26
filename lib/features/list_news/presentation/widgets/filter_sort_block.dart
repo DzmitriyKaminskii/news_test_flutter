@@ -18,7 +18,7 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'period_title'.i18n(),
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               TextButton(
                 style: TextButton.styleFrom(
@@ -36,7 +36,7 @@ class FilterSortBlock extends StatelessWidget {
             children: [
               Text(
                 'sort_title'.i18n(),
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               TextButton(
                   style: TextButton.styleFrom(

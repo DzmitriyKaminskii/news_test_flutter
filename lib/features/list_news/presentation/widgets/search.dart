@@ -46,7 +46,7 @@ class _SearchWidget extends StatelessWidget {
                 BlocProvider.of<SearchBloc>(context)
                     .add(SearchValueEvent(searchString: value));
               },
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
               decoration: InputDecoration(
                 contentPadding: PaddingEdge.leftFifteen,
                 border: OutlineInputBorder(
@@ -55,7 +55,7 @@ class _SearchWidget extends StatelessWidget {
                   ),
                   borderSide: BorderSide.none,
                 ),
-                hintStyle: Theme.of(context).textTheme.headline2,
+                hintStyle: Theme.of(context).textTheme.displayMedium,
                 hintText: 'search_placeholder'.i18n(),
                 filled: true,
                 fillColor: Theme.of(context).colorScheme.onPrimaryContainer,
@@ -69,7 +69,7 @@ class _SearchWidget extends StatelessWidget {
             },
             child: Text(
               'clear_button'.i18n(),
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           )
         ],

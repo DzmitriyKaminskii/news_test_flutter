@@ -26,12 +26,12 @@ class FilterChipBlock extends StatelessWidget {
           children: [
             Text(
               'chip_title'.i18n(),
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
             MultiSelectChipDisplay(
               scroll: true,
               chipColor: Theme.of(context).colorScheme.tertiary,
-              textStyle: Theme.of(context).textTheme.subtitle2,
+              textStyle: Theme.of(context).textTheme.titleSmall,
               shape: StadiumBorder(
                 side: BorderSide(
                   color: Theme.of(context).colorScheme.onTertiary,

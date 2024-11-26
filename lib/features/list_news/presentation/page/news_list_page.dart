@@ -21,7 +21,7 @@ class NewsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleTextStyle: Theme.of(context).textTheme.caption,
+        titleTextStyle: Theme.of(context).textTheme.bodySmall,
         title: Text('app_title'.i18n()),
       ),
       body: DefaultTabController(

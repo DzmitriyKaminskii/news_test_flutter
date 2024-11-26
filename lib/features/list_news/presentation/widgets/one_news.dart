@@ -39,19 +39,19 @@ class OneNews extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(title,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: Dimensions.defaultSpacer,
                     ),
                     Text(subTitle,
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                         overflow: TextOverflow.ellipsis),
                     const SizedBox(
                       height: Dimensions.defaultSpacer,
                     ),
                     Text('By: $sources',
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.titleLarge,
                         overflow: TextOverflow.ellipsis),
                   ],
                 ),
